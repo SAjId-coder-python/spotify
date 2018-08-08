@@ -1,3 +1,8 @@
+'use strict';
+
+process.env.BABEL_ENV = 'production';
+process.env.NODE_ENV = 'production';
+
 const autoprefixer = require('autoprefixer');
 const webpack = require('webpack');
 const path = require('path');
@@ -170,7 +175,8 @@ module.exports = {
     new ExtractTextPlugin('bundle.css'),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production')
-    })
+    }),
+    new BabiliPlugin()
   ],
   stats: {
     colors: true,

@@ -2,8 +2,8 @@
 
 // Import parts of electron to use
 const {app, BrowserWindow} = require('electron');
-const path = require('path')
-const url = require('url')
+const path = require('path');
+const url = require('url');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -20,6 +20,7 @@ function createWindow() {
   mainWindow = new BrowserWindow({
     width: 1024, height: 768, show: false
   });
+  mainWindow.maximize();
 
   // and load the index.html of the app.
   let indexPath;
@@ -57,10 +58,26 @@ function createWindow() {
   });
 }
 
+const installExtensions = async () => {
+  const installer = require('electron-devtools-installer');
+  const forceDownload = !!process.env.UPGRADE_EXTENSIONS;
+  const extensions = ['REACT_DEVELOPER_TOOLS', 'REDUX_DEVTOOLS'];
+
+  return Promise.all(
+    extensions.map(name => installer.default(installer[name], forceDownload))
+  ).catch(console.log);
+};
+
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on('ready', createWindow);
+app.on('ready', async() => {
+  createWindow();
+
+  if (process.env.NODE_ENV === 'development' || process.env.DEBUG_PROD === 'true') {
+    await installExtensions();
+  }
+});
 
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {
