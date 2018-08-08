@@ -1,4 +1,14 @@
-.container {
-  max-width: 80%;
-  margin: 0 auto;
+/* Helpers */
+.panel-wrapper {
+  > div:last-child,
+  > div:nth-last-child(2) {
+    display: none;
+  }
+
+  @include min-screen(960px) {
+    > div:last-child,
+    > div:nth-last-child(2) {
+      display: block;
+    }
+  }
 }
