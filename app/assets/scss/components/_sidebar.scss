@@ -3,4 +3,36 @@
 .sidebar {
   height: 100%;
   background-color: $color--gray-3;
+  max-height: calc(100% - #{$botton-bar-height});
+  overflow-y: auto;
+  padding: $unit-spacing 0;
+}
+
+.sidebar-nav {
+  font-size: 13px;
+  font-weight: 500;
+
+  &__title {
+    margin-top: 25px;
+    padding: 5px 20px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    font-weight: 300;
+  }
+
+  &__item {
+    padding: 2px 20px;
+    display: block;
+    margin-bottom: 10px;
+    border-left: 4px solid transparent;
+    cursor: default;
+
+    &:hover {
+      color: $color--white;
+    }
+
+    &.is-current {
+      border-color: $color--green;
+    }
+  }
 }

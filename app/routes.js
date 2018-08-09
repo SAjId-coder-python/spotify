@@ -7,13 +7,99 @@ import Browse from './containers/Browse';
 
 import BottonBar from './components/layout/bottomBar';
 
+const navigation = [
+  {
+    label: 'Browse',
+    link: '#',
+    isCurrent: true
+  },
+  {
+    label: 'Radio',
+    link: '#'
+  },
+  {
+    label: 'Your Library'
+  },
+  {
+    label: 'Your Daily Mix',
+    link: '#'
+  },
+  {
+    label: 'Recently Played',
+    link: '#'
+  },
+  {
+    label: 'Songs',
+    link: '#'
+  },
+  {
+    label: 'Albums',
+    link: '#'
+  },
+  {
+    label: 'Artists',
+    link: '#'
+  },
+  {
+    label: 'Stations',
+    link: '#'
+  },
+  {
+    label: 'Local Files',
+    link: '#'
+  },
+  {
+    label: 'Videos',
+    link: '#'
+  },
+  {
+    label: 'Podcasts',
+    link: '#'
+  },
+  {
+    label: 'Playlists'
+  },
+  {
+    label: 'Playlist 1',
+    link: '#'
+  },
+  {
+    label: 'Playlist 2',
+    link: '#'
+  },
+  {
+    label: 'Playlist 3',
+    link: '#'
+  },
+  {
+    label: 'Playlist 4',
+    link: '#'
+  },
+  {
+    label: 'Playlist 5',
+    link: '#'
+  }
+]
+
 class Routes extends Component {
   render() {
     return (
       <HashRouter>
         <div className="app-wrapper">
           <SplitPane split="vertical" className="panel-wrapper">
-            <div className="sidebar" initialSize="240px" minSize="120px" maxSize="400px">Sidebar</div>
+            <div className="sidebar" initialSize="240px" minSize="120px" maxSize="400px">
+              <dl className="sidebar-nav">
+                { navigation.map(item => {
+                  if (item.hasOwnProperty('link')) {
+                    const classes = item.hasOwnProperty('isCurrent') && item.isCurrent ? 'sidebar-nav__item is-current' : 'sidebar-nav__item';
+
+                    return <dd><a className={classes} href={item.link}>{item.label}</a></dd>;
+                  }
+
+                  return <dt className="sidebar-nav__title">{item.label}</dt>;
+                }) }
+              </dl>
+            </div>
               <div className="app-content">
                 <header className="header">Header</header>
                 <main className="main-content">
