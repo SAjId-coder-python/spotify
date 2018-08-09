@@ -1,9 +1,9 @@
 /* Variables */
 
 /* Font */
-$font--roboto:  'Roboto', sans-serif;
+$font--montserrat: 'Montserrat', sans-serif;
 
-$font--primary: $font--roboto;
+$font--primary: $font--montserrat;
 
 /* Breakpoints */
 $mobile: 480px;
@@ -15,20 +15,34 @@ $large: 1400px;
 $big: 1600px;
 
 /* Typo */
-$font-size--text: 16px;
+$font-size--text: 14px;
 
 /* Colors */
-$color--green: #26b157;
-$color--text-primary: #808080;
-$color--text-light: #fff;
-$color--gray: #bdbdbd;
-$color--gray-light: #ececec;
+$color--gray-1: #303031; // bottom bar background
+$color--gray-2: #131313; // content background
+$color--gray-3: #101010; // sidebar/friends/header background
+$color--gray-4: #616161; // arrow active
+$color--gray-5: #2E2E2F; // border / lines
+$color--gray-6: #333333; // Sidebar text
+$color--gray-7: #BCBCBC; // bordered buttons
+$color--gray-8: #F1F1F1; // Friend name
+$color--gray-9: #818181; // primary text
+$color--gray-10: #B1B1B1; // progress bar filled
+$color--gray-11: #444444; // progress bar unfilled
+
+$color--green: #00FF70;
 $color--white: #fff;
 $color--black: #000;
 $color--red: red;
 
+$color--gray-light: $color--gray-8;
+$color--text-primary: $color--gray-9;
+$color--text-light: $color--white;
 $color--text: $color--text-primary;
+$color--background: $color--gray-2;
 
 /* Misc */
 $line-height: 1.42857142857143;
 $unit-spacing: 15px;
+
+$botton-bar-height: 85px;
