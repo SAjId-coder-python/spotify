@@ -1,0 +1,46 @@
+/* Helpers */
+.app-wrapper {
+  position: relative;
+  height: 100vh;
+}
+
+.app-content {
+  position: relative;
+  height: 100%;
+}
+
+.main-content {
+  max-height: calc(100% - #{$botton-bar-height + 45px});
+  overflow-y: auto;
+}
+
+.panel-wrapper {
+
+  [data-type="Resizer"] {
+    background: transparent;
+    border: 0;
+    opacity: 1;
+    width: 10px;
+
+    &:hover { border: 0; }
+  }
+
+  > div:last-child,
+  > div:nth-last-child(2) {
+    display: none;
+  }
+
+  @include min-screen(960px) {
+    > div:last-child,
+    > div:nth-last-child(2) {
+      display: block;
+    }
+  }
+}
+
+.separator {
+  height: 1px;
+  display: block;
+  background-color: $color--gray-5;
+  margin: 10px 0;
+}
